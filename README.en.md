@@ -1,6 +1,10 @@
-# Claude Persistent Memory System
+# AI Agent Persistent Memory System
 
-*[中文版 → README.md](README.md)*
+*[中文 → README.md](README.md)*
+
+> ⚡ **Quick start**: drop this folder into your project and tell your AI agent —— **"Read `AGENTS.md` and run this memory system."** Everything after that (mounting it as resident, walking you through the habits on first run, and ongoing use) **is automated by the agent**; just approve when it needs to create memory files / wire up config.
+
+> 🌐 **Bilingual**: the whole system ships in **`en/`** (English) and **`zh/`** (中文) — two complete copies, pick one. An agent picks the folder matching your language automatically (see `AGENTS.md`); you work in one language after that.
 
 > 🤖 **Are you an AI agent adopting this system? Read [AGENTS.md](AGENTS.md) first** (the agent-facing bootstrap). This file is the human-facing intro.
 
@@ -31,7 +35,7 @@ There is a single entry file, **`MEMORY.md`**, loaded automatically every sessio
 
 > In one line: **load `MEMORY.md` → the habit hooks kick in immediately → grow your own memory DB as you go.**
 
-> **First run**: the first time the agent loads this for you, it will **open the habit-hook table and walk you through it hook by hook** (see the "🚀 First run" note at the top of `MEMORY.md`), so you can tune it to your own workflow instead of inheriting someone else's. **For English-speaking users**, the agent opens the English habit memory instead: [`HABITS.en.md`](HABITS.en.md).
+> **First run**: the first time the agent loads this for you, it will **open the habit-hook table and walk you through it hook by hook** (see the "🚀 First run" note at the top of `<lang>/MEMORY.md`), so you can tune it to your own workflow instead of inheriting someone else's. **Language is picked by folder** — the agent uses `en/` (English) or `zh/` (Chinese) per [AGENTS.md](AGENTS.md).
 
 ---
 
@@ -71,11 +75,15 @@ These are the foundation under habit memory — understand the principle; you wo
 ## File layout
 
 ```
-MEMORY.md                      # Resident index (the only auto-loaded entry; holds the habit-hook table)
-<rule>.md                      # One memory per file, with frontmatter
-conversations/events/<slug>.md # Event "bloodline": a purely chronological numbered log [1][2]…; leaves index into it via 🩸conv▸N
-pitfalls/<date>-<task>.md      # Pitfall archive (historical record, not rewritten)
-tools/                         # Validation scripts (e.g. "logic map vs code" health check)
+README.md / README.en.md         # Human-facing intro (this file), per language
+AGENTS.md                        # Agent bootstrap + language router — read this to adopt
+en/  ·  zh/                      # The whole system, one complete copy per language — pick one:
+  MEMORY.md                      # Resident index (the only auto-loaded entry; holds the habit-hook table)
+  <rule>.md                      # One memory per file, with frontmatter
+  examples/                      # A worked example memory tree
+  conversations/events/<slug>.md # Event "bloodline": chronological numbered log [1][2]…; leaves index via 🩸conv▸N
+  pitfalls/<date>-<task>.md      # Pitfall archive (historical record, not rewritten)
+  tools/                         # Validation scripts (map-vs-code, tree integrity)
 ```
 
 Each memory's frontmatter:
