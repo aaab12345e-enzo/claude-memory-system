@@ -2,6 +2,8 @@
 
 *[中文版 → README.md](README.md)*
 
+> 🤖 **Are you an AI agent adopting this system? Read [AGENTS.md](AGENTS.md) first** (the agent-facing bootstrap). This file is the human-facing intro.
+
 A **file-based persistent memory system** for an AI coding assistant (Claude Code and similar agents). It lets the agent keep knowledge across sessions and context compaction, without losing it and without hallucinating when a conversation gets long. Everything is plain markdown on disk — readable and writable by both human and AI.
 
 > This wasn't designed top-down. It grew, one entry at a time, out of a real project — refined every time the AI hit a pitfall or got corrected. All contents here are sanitized: no real project code, server addresses, credentials, or personal data.
